@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+#tomatimer {
+  /* width: 380px; */
+}
+
+#donelist {
+  width: 380px;
+}
+
+.ct-background-green {
+  background-color: rgb(67, 142, 81);
+  color: #fff;
+}
+
+.uk-countdown-number {
+  font-size: 3rem;
+}
+
+.ct-start-button {
+  padding: 18% 10% 18% 10%;
+  width: 100%;
+}
+
+.ct-other-button {
+  width: 60%;
+  padding: 10% 10% 10% 10%;
+}
+
+.ct-grid-start-button {
+  margin-left: 10%;
+  margin-right: 10%;
+}

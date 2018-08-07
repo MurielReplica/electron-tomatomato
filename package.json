@@ -1,0 +1,23 @@
+{
+  "name": "tomatomato",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shayan36981/electron-tomatomato.git"
+  },
+  "author": "Shayan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shayan36981/electron-tomatomato/issues"
+  },
+  "homepage": "https://github.com/Shayan36981/electron-tomatomato#readme",
+  "devDependencies": {
+    "electron": "^2.0.6"
+  }
+}
