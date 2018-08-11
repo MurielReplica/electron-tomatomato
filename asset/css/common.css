@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+/**
+ * common style
+ *
+ * (c) MurielReplica
+ * license MIT
+ * version 0.1.0
+ */
+
 #tomatimer {
   /* width: 380px; */
 }
@@ -30,4 +38,17 @@
 .ct-grid-start-button {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.mr-transparent {
+  opacity: 0;
+  background: rgba(0, 0, 0, 0);
+}
+
+.mr-hidden {
+  display: none;
+}
+
+.mr-show {
+  display: flex;
 }

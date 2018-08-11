@@ -1,68 +1,73 @@
+/**
+ * countdown scriot
+ *
+ * (c) MurielReplica
+ * license MIT
+ * version 0.1.0
+ */
 var m=3;
 var s=0;
 var ipc = require('electron').ipcRenderer;
 
 // 現在時刻にカウントダウンの時間を加算してスタート日時を作る
-function setStartDt(pm, ps) {
+function setStartDt() {
   var dt = new Date();
-  dt.setMinutes(dt.getMinutes() + pm);
-  dt.setSeconds(dt.getSeconds() + (ps+1));
+  dt.setMinutes(dt.getMinutes() + m);
+  dt.setSeconds(dt.getSeconds() + (s+1));
   return dt;
 }
 
-function initCountdown(pm, ps){
+// タイマーを初期化
+function initCountdown(){
   console.log('init m -> '+m);
-  console.log('init pm -> '+pm);
   console.log('init s -> '+s);
-  console.log('init ps -> '+ps);
 
-  if (pm!==m || ps!==s) {
-    UIkit.countdown('#timer', {date: setStartDt(pm,ps).toISOString()});
-    m=pm;
-    s=ps;
-  }
+  UIkit.countdown('#timer', {date: setStartDt(m,s).toISOString()});
 }
 
+// タイマー開始
 function startCountdown(pm, ps){
   console.log('start m -> '+m);
-  console.log('start pm -> '+pm);
   console.log('start s -> '+s);
-  console.log('start ps -> '+ps);
+  m=pm
+  s=ps
 
-  initCountdown(pm,ps);
+  initCountdown();
   UIkit.countdown('#timer').start();
+  ipc.send('actionStart', 'start');
   return false;
 }
 
+// タイマー一時停止
 function stopCountdown(){
   UIkit.countdown('#timer').stop();
   return false;
 }
 
+// タイマーリセット
 function resetCountdown(){
-  console.log('reset');
-  pm=m;
-  ps=s;
-  m=0;
-  s=0;
-  initCountdown(pm,ps);
+  // console.log('reset');
+  initCountdown(m,s);
   UIkit.countdown('#timer').stop();
   return false;
 }
 
+// タイマー終了
 function endCountdown(){
+  console.log('end m-> '+m+' / s-> '+s);
   resetCountdown();
   ipc.send('actionEndSync', 'bowbow');
   addDonelist();
 }
 
+// 完了したらリストに追加
 function addDonelist() {
     var d = $('#todo').val();
     if (d=='') {
         d="Done";
     }
-    
-    $('#donelist').append('<p class="uk-article-meta">'+m+'min. '+s+'sec. : '+d+'</p>');    
+
+    $('#donelist').append('<p class="uk-article-meta">'+m+'min. '+s+'sec. : '+d+'</p>');
 }
 
 

@@ -8109,7 +8109,9 @@
                 el: document,
 
                 handler: function() {
+                  console.log('handler');
                     if (document.hidden) {
+                      console.log('hidden');
                         this.stop();
                     } else {
                         this.start();
@@ -8141,7 +8143,7 @@
                     console.log('aaaa');
                     endCountdown();
                 }
-console.log('timespan.total -> ' + timespan.total);
+// console.log('timespan.total -> ' + timespan.total);
 // console.log('this.date  -> '+this.date);
 // console.log('now .date  -> '+Date.now());
 // console.log('zihouSpan -> '+this.zihouSpan);
